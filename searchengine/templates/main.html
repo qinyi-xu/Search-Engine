@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}HITSZ News Search{% endblock %}</title>
+  <meta name="description" content="HITSZ News Search 是哈工深校园新闻的搜索引擎。" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="xqy" />
+  <meta name="founder" content="xqy" />
+  <link href="https://cdn.bootcss.com" rel="dns-prefetch" />
+  <link href="https://api.bootcdn.cn" rel="dns-prefetch" />
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <!--[if IE 9]>
+    <script src="https://cdn.bootcss.com/geopattern/1.2.3/js/base64.min.js"></script>
+    <script src="https://cdn.bootcss.com/geopattern/1.2.3/js/typedarray.min.js"></script>
+  <![endif]-->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png?1526622111831" />
+  <link rel="shortcut icon" href="/assets/ico/favicon.ico?1526622111831" />
+<!--   <script>var build = 1526622111831;</script>
+  <script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?24aff315392dc2c9b2805cfa4d8e101a";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();</script> -->
+ </head>
+ <body class="home-template">
+  <header class="site-header" style="background: #FFFFFF">
+   <nav class="navbar navbar-static-top main-navbar" id="top">
+    <div class="container">
+     <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+      <a href="/" class="navbar-brand brand-bootcdn text-hide" onclick="_hmt.push(['_trackEvent', 'main-navbar', 'click', 'main-navbar-bootcdn'])">BootCDN</a>
+     </div>
+    </div>
+   </nav>
+
+   <div class="container jumbotron" style="background: #FFFFFF">
+    <div class="row">
+     <div class="col-xs-12">
+      <h1 style="font-family:Georgia; color: #5F9EA0; text-align: center;">HITSZ News Search</h1>
+	  <p style="text-align: center; color: #778899; font-size:20px;"><br />共收录了10128条新闻</p>
+      <div class="search-wraper" role="search">
+        <form action="search" method="GET">
+          <input class="form-control search clearable" placeholder="搜索新闻，例如：计算机学院" autocomplete="off" autofocus="" tabindex="0" autocorrect="off" autocapitalize="off" spellcheck="false" style="width: 90%;height: 50px;font-size:20px;display:inline;float:left;" name="q" value="{% block search %}{% endblock %}"/>
+		      <input class="form-control search clearable" type="submit" value="搜索" style="width: 10%;height: 50px;display:inline;float:right;background: #5F9EA0;color: #FFFFFF;font-size:20px;">
+    <!--  <i class="fa fa-search"></i> -->
+        </form>
+      </div>
+     </div>
+    </div>
+   </div>
+  </header>
+
+  <div class="container protocal-notice hidden-xs">
+   <div class="row">
+    <div class="col-xs-12">
+     <div class="pull-right">
+      {% block resultAmount %}
+       
+      {% endblock %}
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <main class="packages-list-container" id="all-packages" style="font-family: 'Microsoft JhengHei'">
+   <div class="container">
+    <div class="list-group packages" id="common-packages">
+     {% block content %}
+
+     {% endblock %}
+    </div>
+    <div class="list-group packages" id="search-results" style="display: none"></div>
+   </div>
+  </main>
+
+ </body>
+</html>
